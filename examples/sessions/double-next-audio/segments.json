@@ -1,0 +1,55 @@
+{
+  "format": "lap-narrator/segments",
+  "version": 1,
+  "sessionId": "ex-double-next-audio",
+  "segments": [
+    {
+      "segmentId": "g00001",
+      "takeId": "t0001",
+      "slideId": "s0001",
+      "raw": "rec-000001",
+      "start": 0,
+      "end": 9600,
+      "startSec": 0,
+      "endSec": 0.2,
+      "status": "kept",
+      "order": 1
+    }
+  ],
+  "takes": [
+    {
+      "takeId": "t0001",
+      "slideId": "s0001",
+      "status": "closed",
+      "startSeq": 1,
+      "endSeq": 3,
+      "segments": [
+        "g00001"
+      ],
+      "samples": 9600,
+      "candidate": true
+    }
+  ],
+  "defaultTakes": {
+    "s0001": "t0001"
+  },
+  "recoverable": {
+    "pos": 19200,
+    "raw": "rec-000001",
+    "sample": 19200,
+    "lastCheckpointId": "c0001"
+  },
+  "marks": [],
+  "issues": [
+    {
+      "code": "orphan-audio",
+      "seq": 3,
+      "message": "audio after next-slide"
+    },
+    {
+      "code": "orphan-audio",
+      "seq": 5,
+      "message": "audio after next-slide"
+    }
+  ]
+}

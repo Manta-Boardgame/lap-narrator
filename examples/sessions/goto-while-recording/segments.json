@@ -1,0 +1,88 @@
+{
+  "format": "lap-narrator/segments",
+  "version": 1,
+  "sessionId": "ex-goto-while-recording",
+  "segments": [
+    {
+      "segmentId": "g00001",
+      "takeId": "t0001",
+      "slideId": "s0001",
+      "raw": "rec-000001",
+      "start": 0,
+      "end": 9600,
+      "startSec": 0,
+      "endSec": 0.2,
+      "status": "kept",
+      "order": 1
+    },
+    {
+      "segmentId": "g00002",
+      "takeId": "t0001",
+      "slideId": "s0001",
+      "raw": "rec-000001",
+      "start": 9600,
+      "end": 14400,
+      "startSec": 0.2,
+      "endSec": 0.3,
+      "status": "discarded",
+      "reason": "abandoned",
+      "order": null
+    },
+    {
+      "segmentId": "g00003",
+      "takeId": "t0002",
+      "slideId": "s0003",
+      "raw": "rec-000001",
+      "start": 24000,
+      "end": 33600,
+      "startSec": 0.5,
+      "endSec": 0.7,
+      "status": "kept",
+      "order": 1
+    }
+  ],
+  "takes": [
+    {
+      "takeId": "t0001",
+      "slideId": "s0001",
+      "status": "closed",
+      "startSeq": 1,
+      "endSeq": 4,
+      "segments": [
+        "g00001"
+      ],
+      "samples": 9600,
+      "candidate": true
+    },
+    {
+      "takeId": "t0002",
+      "slideId": "s0003",
+      "status": "closed",
+      "startSeq": 6,
+      "endSeq": 10,
+      "segments": [
+        "g00003"
+      ],
+      "samples": 9600,
+      "candidate": true
+    }
+  ],
+  "defaultTakes": {
+    "s0001": "t0001",
+    "s0003": "t0002"
+  },
+  "recoverable": {
+    "pos": 33600,
+    "raw": "rec-000001",
+    "sample": 33600,
+    "lastCheckpointId": "c0003"
+  },
+  "marks": [],
+  "issues": [
+    {
+      "code": "goto-while-recording",
+      "seq": 4,
+      "message": "goto-slide while recording"
+    }
+  ]
+}

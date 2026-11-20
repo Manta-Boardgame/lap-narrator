@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' blob:; media-src 'self' blob:; connect-src 'self'; worker-src 'self'; manifest-src 'self'; font-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#14213d">
+<title>lap-narrator</title>
+<!-- @no-release:begin -->
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<!-- @no-release:end -->
+<link rel="stylesheet" href="styles.css">
+<script type="module" src="src/main.js"></script>
+</head>
+<body>
+<header class="top">
+  <button id="btn-back" class="icon-btn" hidden data-i18n="nav.back">Back</button>
+  <h1 id="app-title" data-i18n="app.name">lap-narrator</h1>
+  <span id="status-chip" class="chip" hidden></span>
+  <button id="btn-lang" class="icon-btn" data-i18n="lang.switch">日本語</button>
+</header>
+
+<main>
+  <!-- ホーム：台本を開く、録音セッションの一覧 -->
+  <section id="view-home">
+    <section class="card" id="card-record">
+      <h2 data-i18n="home.record">Recording</h2>
+      <p class="note" data-i18n="home.recordNote"></p>
+      <button id="btn-new-free" class="btn primary" data-act="new-session" data-i18n="home.newFree">Start recording without a script</button>
+      <details class="mode" id="mode-box">
+        <summary data-i18n="home.perSlide">Slide-by-slide mode (for people who want the highest precision)</summary>
+        <label><input id="chk-per-slide" type="checkbox"> <span data-i18n="home.perSlide">Slide-by-slide mode (for people who want the highest precision)</span></label>
+        <p class="note" data-i18n="home.perSlideNote"></p>
+        <p id="mode-msg" class="note warn" role="status"></p>
+      </details>
+      <div id="sessions"></div>
+    </section>
+
+    <section class="card">
+      <h2 data-i18n="home.openScript">Open a script (optional for a continuous recording; it is only shown on screen while you record)</h2>
+      <label class="file-btn">
+        <input id="file-pack" type="file" accept=".zip,application/zip">
+        <span data-i18n="home.chooseZip">Choose a script pack (zip)</span>
+      </label>
+      <details class="paste">
+        <summary data-i18n="home.pasteSummary">Paste script.json</summary>
+        <textarea id="paste-json" rows="5" spellcheck="false" data-i18n-placeholder="home.pastePlaceholder"></textarea>
+        <button id="btn-paste" class="btn" data-i18n="home.pasteOpen">Open pasted script</button>
+      </details>
+      <p id="open-msg" class="note" role="status"></p>
+    </section>
+
+    <section class="card">
+      <h2 data-i18n="home.projects">Scripts on this device</h2>
+      <div id="projects"></div>
+    </section>
+
+    <section class="card" id="card-ai-prompt">
+      <h2 data-i18n="aiPrompt.title">Make the video with an AI</h2>
+      <p class="note" data-i18n="aiPrompt.explain"></p>
+      <div id="ai-prompt-home"></div>
+    </section>
+
+    <section class="card">
+      <h2 data-i18n="storage.title">Device storage</h2>
+      <p id="storage-info" class="note"></p>
+      <p class="note" data-i18n="privacy.note"></p>
+    </section>
+  </section>
+
+  <!-- 録音の画面 -->
+  <section id="view-record" hidden>
+    <div class="slide-area per-slide-only" hidden>
+      <img id="slide-img" alt="" hidden>
+      <div id="slide-noimg" class="noimg" data-i18n="rec.noImage">(no image)</div>
+      <div class="slide-meta"><span id="slide-no"></span><span id="slide-title"></span></div>
+    </div>
+
+    <section class="card" id="script-card" hidden>
+      <div class="script-head">
+        <h2 data-i18n="rec.script">Script</h2>
+        <button id="btn-script-toggle" class="btn small" type="button" aria-controls="script-body" aria-pressed="true"></button>
+      </div>
+      <div id="script-body">
+        <div id="reading" class="reading script-scroll" tabindex="0"></div>
+        <div class="font-tools">
+          <button id="btn-font-minus" class="icon-btn" data-i18n-aria="rec.fontSmaller" aria-label="">A-</button>
+          <button id="btn-font-plus" class="icon-btn" data-i18n-aria="rec.fontLarger" aria-label="">A+</button>
+        </div>
+      </div>
+    </section>
+
+    <div class="stats">
+      <div class="per-slide-only" hidden><span id="t-slide"></span> <span id="t-target" class="muted"></span></div>
+      <div id="t-total"></div>
+    </div>
+    <div class="meter" aria-hidden="true"><div id="meter-fill" class="meter-fill"></div></div>
+    <p id="clip-warn" class="warn" hidden data-i18n="rec.clip"></p>
+    <div class="recover-pos">
+      <span><span data-i18n="rec.durable">Recoverable up to</span> <b id="durable-pos">0:00</b></span>
+      <span><span data-i18n="rec.lastOk">Last OK</span> <b id="last-ok">-</b></span>
+    </div>
+    <div class="confirmed">
+      <span id="t-confirmed" class="confirmed-main"></span>
+      <span id="t-unconfirmed" class="muted confirmed-sub"></span>
+    </div>
+
+    <div id="recording-fault" hidden>
+      <p id="recording-fault-text" class="note warn" role="alert"></p>
+      <button id="btn-reopen-recording" class="btn" data-i18n="rec.reopen">Reopen recording</button>
+    </div>
+
+    <div class="controls">
+      <button id="btn-record" class="btn primary wide"><span id="lbl-record" data-i18n="btn.record">Record</span> <kbd>R</kbd></button>
+      <button id="btn-ok" class="btn ok"><span data-i18n="btn.ok">OK</span> <kbd>Space</kbd></button>
+      <button id="btn-retake" class="btn"><span data-i18n="btn.retake">Retake</span> <kbd>Backspace</kbd></button>
+      <button id="btn-next" class="btn per-slide-only" hidden><span data-i18n="btn.next">Next slide</span> <kbd>Enter</kbd></button>
+      <button id="btn-pause" class="btn"><span data-i18n="btn.pause">Pause</span> <kbd>Esc</kbd></button>
+      <button id="btn-listen" class="btn"><span data-i18n="btn.listen">Replay last</span> <kbd>L</kbd></button>
+      <button id="btn-mark" class="btn"><span data-i18n="btn.mark">Mark</span> <kbd>M</kbd></button>
+      <button id="btn-undo" class="btn"><span data-i18n="btn.undo">Undo</span> <kbd>Ctrl+Z</kbd></button>
+      <button id="btn-listen-slide" class="btn"><span data-i18n="btn.listenSlide">Play all</span> <kbd>P</kbd></button>
+      <button id="btn-test" class="btn"><span data-i18n="btn.test">Test recording</span> <kbd>T</kbd></button>
+      <button id="btn-redo" class="btn"><span data-i18n="btn.redo">Redo</span> <kbd>Ctrl+Y</kbd></button>
+    </div>
+    <p id="test-note" class="note" role="status"></p>
+    <p id="play-note" class="note" hidden><span data-i18n="rec.playing">Playing...</span> <button id="btn-stop-play" class="btn small" data-i18n="rec.stopPlay">Stop playback</button></p>
+    <p id="wake-note" class="note"></p>
+    <p id="storage-note" class="note"></p>
+
+    <section class="card per-slide-only" hidden>
+      <h2 data-i18n="rec.list">Slides</h2>
+      <div class="list-tools">
+        <label><input id="chk-mine" type="checkbox"> <span data-i18n="rec.assigned">Only my slides</span></label>
+        <button id="btn-goto-todo" class="btn small" data-i18n="rec.gotoTodo">Go to next unrecorded</button>
+      </div>
+      <p id="progress" class="note"></p>
+      <ol id="slide-list" class="slide-list"></ol>
+    </section>
+
+  </section>
+</main>
+
+<div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+<!-- 復旧（設計書 4.5）：本人が、続きを採用するか、最後の OK 点から撮り直すかを選ぶ -->
+<dialog id="dlg-recovery" class="dlg">
+  <h2 data-i18n="recovery.title">Recording stopped unexpectedly</h2>
+  <p id="rec-summary" class="big"></p>
+  <p><button id="rec-listen" class="btn"></button></p>
+  <p id="rec-extra" class="note"></p>
+  <p class="note" data-i18n="recovery.noMic">The microphone is not restarted automatically.</p>
+  <div class="dlg-actions">
+    <button id="rec-adopt" class="btn ok" data-i18n="recovery.adopt">Keep it (mark as OK)</button>
+    <button id="rec-retake" class="btn" data-i18n="recovery.retake">Retake from the last OK</button>
+  </div>
+</dialog>
+
+<!-- 書き出し -->
+<dialog id="dlg-export" class="dlg">
+  <h2 data-i18n="export.title">Export</h2>
+  <div id="export-body"></div>
+  <div class="dlg-actions"><button id="export-close" class="btn" data-i18n="btn.close">Close</button></div>
+</dialog>
+
+</body>
+</html>

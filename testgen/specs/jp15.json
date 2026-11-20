@@ -1,0 +1,25 @@
+{
+  "name": "jp15",
+  "projectId": "jp15_demo",
+  "title": "ほしぞら町図書館 夜の読み聞かせ会の企画（架空）",
+  "lang": "ja",
+  "seed": "jp15",
+  "image": { "width": 320, "height": 180 },
+  "slides": [
+    { "title": "夜の読み聞かせ会", "text": "みなさん、こんばんは。ほしぞら町図書館の夜の読み聞かせ会について、企画の内容をご説明します。", "recordable": true, "speaker": "話者A", "targetSec": 12 },
+    { "title": "背景", "text": "近ごろ、夜に気軽に立ち寄れる場所が少ないという声が、町の人からたくさん寄せられています。", "recordable": true, "speaker": "話者A", "targetSec": 11 },
+    { "title": "目的", "text": "子どもから大人まで、本を通して静かな時間を分かち合うことが、この会の目的です。", "recordable": true, "speaker": "話者A", "targetSec": 10 },
+    { "title": "対象", "text": "対象は四歳から小学生までの子どもと、その保護者です。参加は無料で、予約は要りません。", "recordable": true, "speaker": "話者A", "targetSec": 11 },
+    { "title": "補足（非表示）", "text": "非表示の補足スライドです。アンケートの集計表を載せています。", "recordable": false, "hidden": true, "speaker": "話者A" },
+    { "title": "日程", "text": "開催は毎月第二金曜日の夜七時から八時までです。年間で十二回を予定しています。", "recordable": true, "speaker": "話者B", "targetSec": 10 },
+    { "title": "会場", "text": "会場は図書館の二階にある、おはなしの部屋です。床にじゅうたんを敷いて、座って聞きます。", "recordable": true, "speaker": "話者B", "targetSec": 11 },
+    { "title": "準備", "text": "絵本は職員が選び、前の週までに三冊をそろえます。照明は少し落として、ろうそく風の電灯を使います。", "recordable": true, "speaker": "話者B", "targetSec": 13 },
+    { "title": "運営", "text": "", "recordable": false, "speaker": "話者B" },
+    { "title": "役割", "text": "進行役が一人、読み手が二人、受付が一人の、合わせて四人で運営します。", "recordable": true, "speaker": "話者B", "targetSec": 10 },
+    { "title": "予算", "text": "必要な費用は、年間で約八万円です。主に絵本の購入費と、消耗品に使います。", "recordable": true, "speaker": "話者C", "targetSec": 10 },
+    { "title": "広報", "text": "町の掲示板と、図書館だより、小学校へのお知らせで案内します。", "recordable": true, "speaker": "話者C", "targetSec": 8 },
+    { "title": "当日の流れ", "text": "受付、あいさつ、絵本の読み聞かせ、感想の時間の順に進めます。全体で約五十分です。", "recordable": true, "speaker": "話者C", "targetSec": 11 },
+    { "title": "評価", "text": "毎回、参加人数と、感想のひとことカードを集めて、次の回に生かします。", "recordable": true, "speaker": "話者C", "targetSec": 9 },
+    { "title": "まとめ", "text": "以上が、夜の読み聞かせ会の企画です。ご意見やご質問があれば、ぜひお聞かせください。", "recordable": true, "speaker": "話者A", "targetSec": 10 }
+  ]
+}

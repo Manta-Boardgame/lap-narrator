@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ランチャーアイコンの前景：マイクと波形（白）。108dp の中央 66dp の安全域に収める。 -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path android:fillColor="#FFFFFFFF"
+        android:pathData="M54,30c-4.4,0 -8,3.6 -8,8v14c0,4.4 3.6,8 8,8s8,-3.6 8,-8V38c0,-4.4 -3.6,-8 -8,-8z" />
+    <path android:fillColor="#00000000" android:strokeColor="#FFFFFFFF" android:strokeWidth="3" android:strokeLineCap="round"
+        android:pathData="M42,50c0,6.6 5.4,12 12,12s12,-5.4 12,-12" />
+    <path android:fillColor="#00000000" android:strokeColor="#FFFFFFFF" android:strokeWidth="3" android:strokeLineCap="round"
+        android:pathData="M54,62v10M46,72h16" />
+    <path android:fillColor="#00000000" android:strokeColor="#FF26A69A" android:strokeWidth="3" android:strokeLineCap="round"
+        android:pathData="M28,48v10M34,42v22M74,42v22M80,48v10" />
+</vector>

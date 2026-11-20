@@ -1,0 +1,157 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "lap-narrator/boundaries",
+  "description": "Slide boundaries of one continuous recording (dev/PLAN2.md, CONTRACTS.md 7.8). Intervals [startSample, endSample) are contiguous; the contiguity, the script and the audio are checked by core checkBoundaries.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "format",
+    "version",
+    "sampleRate",
+    "audio",
+    "script",
+    "slides"
+  ],
+  "properties": {
+    "format": {
+      "const": "lap-narrator/boundaries"
+    },
+    "version": {
+      "const": 1
+    },
+    "sampleRate": {
+      "type": "integer",
+      "minimum": 8000,
+      "maximum": 9007199254740991
+    },
+    "audio": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sha256",
+        "samples"
+      ],
+      "properties": {
+        "file": {
+          "type": "string"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "samples": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9007199254740991
+        }
+      }
+    },
+    "transcript": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sha256"
+      ],
+      "properties": {
+        "file": {
+          "type": "string"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "model": {
+          "type": "string"
+        }
+      }
+    },
+    "script": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "scriptHash"
+      ],
+      "properties": {
+        "scriptHash": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    },
+    "slides": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "slideId",
+          "order",
+          "startSample",
+          "endSample",
+          "status"
+        ],
+        "properties": {
+          "slideId": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_-]{1,64}$"
+          },
+          "order": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 9007199254740991
+          },
+          "startSample": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "endSample": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "confidence": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "method": {
+            "type": "string",
+            "enum": [
+              "asr-align",
+              "manual",
+              "interpolated"
+            ]
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "auto",
+              "confirmed",
+              "needs-decision"
+            ]
+          },
+          "candidates": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "sample"
+              ],
+              "properties": {
+                "sample": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 9007199254740991
+                },
+                "score": {
+                  "type": "number"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

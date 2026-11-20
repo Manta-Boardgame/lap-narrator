@@ -1,0 +1,474 @@
+[
+  {
+    "name": "basic",
+    "sessionId": "ex-basic",
+    "en": "Basic: record one slide, OK, pause, go to the next slide.",
+    "ja": "基本：1 枚を録って OK、一時停止して次のスライドへ。",
+    "slides": "tiny3",
+    "rawFiles": [
+      48000
+    ],
+    "events": 8,
+    "issues": []
+  },
+  {
+    "name": "retake",
+    "sessionId": "ex-retake",
+    "en": "Retake: go back to the last OK point and record again.",
+    "ja": "撮り直し：直前の OK 点まで戻って録り直す。",
+    "slides": "tiny3",
+    "rawFiles": [
+      48000
+    ],
+    "events": 13,
+    "issues": []
+  },
+  {
+    "name": "retake-twice",
+    "sessionId": "ex-retake-twice",
+    "en": "Two consecutive retakes: the second goes back to the earlier OK point.",
+    "ja": "2 回連続の撮り直し：続けて押すと、さらに前の OK 点へ戻る。",
+    "slides": "tiny3",
+    "rawFiles": [
+      48000
+    ],
+    "events": 14,
+    "issues": []
+  },
+  {
+    "name": "retake-null",
+    "sessionId": "ex-retake-null",
+    "en": "Retake with toCheckpoint = null: go back to the start of the take.",
+    "ja": "toCheckpoint が null の撮り直し：テイクの最初まで戻る。",
+    "slides": "tiny3",
+    "rawFiles": [
+      48000
+    ],
+    "events": 12,
+    "issues": []
+  },
+  {
+    "name": "undo-ok",
+    "sessionId": "ex-undo-ok",
+    "en": "Undo of an OK: the undone OK is treated as absent, so the pieces around it join one checkpoint.",
+    "ja": "OK の取り消し：取り消した OK は存在しないものとして扱い、その前後の断片が 1 つのチェックポイントになる。",
+    "slides": "tiny3",
+    "rawFiles": [
+      48000
+    ],
+    "events": 12,
+    "issues": []
+  },
+  {
+    "name": "undo-retake",
+    "sessionId": "ex-undo-retake",
+    "en": "Undo of a retake: the undone retake is treated as absent, so the recording simply continued.",
+    "ja": "撮り直しの取り消し：取り消した撮り直しは存在しないものとして扱い、録音が続いていたことになる。",
+    "slides": "tiny3",
+    "rawFiles": [
+      48000
+    ],
+    "events": 14,
+    "issues": []
+  },
+  {
+    "name": "redo-retake",
+    "sessionId": "ex-redo-retake",
+    "en": "Undo then redo of a retake: the redo makes the retake effective again.",
+    "ja": "撮り直しの取り消しと、やり直し（redo）：redo で撮り直しが有効に戻る。",
+    "slides": "tiny3",
+    "rawFiles": [
+      48000
+    ],
+    "events": 14,
+    "issues": []
+  },
+  {
+    "name": "undo-nav",
+    "sessionId": "ex-undo-nav",
+    "en": "Undo of next-slide and goto-slide: undone operations do not exist (no orphan-audio, no goto-while-recording).",
+    "ja": "次のスライドへ、と、スライドの移動の取り消し：取り消した操作は存在しない（orphan-audio も goto-while-recording も出ない）。",
+    "slides": "tiny3",
+    "rawFiles": [
+      48000
+    ],
+    "events": 12,
+    "issues": []
+  },
+  {
+    "name": "file-rotate",
+    "sessionId": "ex-file-rotate",
+    "en": "File rotation: the raw file switches mid-take and one take refers to two raw files.",
+    "ja": "録音ファイルの切り替え：OK 点をまたいで録音ファイルが切り替わり、1 つのテイクが 2 つのファイルを参照する。",
+    "slides": "tiny3",
+    "rawFiles": [
+      48000,
+      48000
+    ],
+    "events": 11,
+    "issues": []
+  },
+  {
+    "name": "pause-resume",
+    "sessionId": "ex-pause-resume",
+    "en": "Pause and resume: adjacent pieces are not merged; gaps are allowed; an empty piece is replaced on resume.",
+    "ja": "一時停止と再開：end == 次の start の断片はまとめない。再開位置が離れていてもよい。空の断片は置き換える。",
+    "slides": "tiny3",
+    "rawFiles": [
+      48000
+    ],
+    "events": 15,
+    "issues": []
+  },
+  {
+    "name": "goto-slide",
+    "sessionId": "ex-goto-slide",
+    "en": "goto-slide to re-record a slide: two candidates for one slide; the default is the newer one.",
+    "ja": "goto-slide で別のスライドを録り直す：同じスライドに候補が 2 つでき、既定は startSeq が大きい（新しい）方。",
+    "slides": "tiny3",
+    "rawFiles": [
+      48000
+    ],
+    "events": 18,
+    "issues": []
+  },
+  {
+    "name": "goto-while-recording",
+    "sessionId": "ex-goto-while-recording",
+    "en": "goto-slide while recording: reports goto-while-recording and closes the take (leftover pieces are abandoned).",
+    "ja": "録音中の goto-slide：問題 goto-while-recording を出し、テイクを閉じる（残った断片は abandoned）。",
+    "slides": "tiny3",
+    "rawFiles": [
+      48000
+    ],
+    "events": 11,
+    "issues": [
+      "goto-while-recording"
+    ]
+  },
+  {
+    "name": "recovered",
+    "sessionId": "ex-recovered",
+    "en": "recovered (force-quit without any OK): everything up to the last durable position is uncommitted.",
+    "ja": "recovered（OK を 1 度も押さずに強制終了）：保存位置（durable）までが uncommitted になる。",
+    "slides": "tiny3",
+    "rawFiles": [
+      48000
+    ],
+    "events": 6,
+    "issues": []
+  },
+  {
+    "name": "recovered-after-ok",
+    "sessionId": "ex-recovered-after-ok",
+    "en": "Force-quit after one OK: up to the OK is kept; the rest up to the last durable is uncommitted.",
+    "ja": "OK を 1 度押したあとの強制終了：OK までは採用、そのあとの保存位置までが uncommitted。",
+    "slides": "tiny3",
+    "rawFiles": [
+      48000
+    ],
+    "events": 7,
+    "issues": []
+  },
+  {
+    "name": "recovered-retake",
+    "sessionId": "ex-recovered-retake",
+    "en": "After recovery, retake from the last OK point and continue in a new raw file.",
+    "ja": "復旧のあと、最後の OK 点から撮り直し、新しい録音ファイルで続ける。",
+    "slides": "tiny3",
+    "rawFiles": [
+      48000,
+      48000
+    ],
+    "events": 13,
+    "issues": []
+  },
+  {
+    "name": "orphan-audio",
+    "sessionId": "ex-orphan-audio",
+    "en": "Recording continues after next-slide: reports orphan-audio; audio until the next rec-start belongs to no take.",
+    "ja": "next-slide のあとも録音が続く（recording が真）：問題 orphan-audio。次の rec-start までの音はどのテイクにも属さない。",
+    "slides": "tiny3",
+    "rawFiles": [
+      48000
+    ],
+    "events": 11,
+    "issues": [
+      "orphan-audio"
+    ]
+  },
+  {
+    "name": "next-while-recording",
+    "sessionId": "ex-next-while-recording",
+    "en": "Go to the next slide while still recording and rec-start at the same position (normal use): no orphan-audio (CONTRACTS.md chapter 7).",
+    "ja": "録音を続けたまま次のスライドへ進み、同じ位置で rec-start する（通常の操作）：orphan-audio は出ない（CONTRACTS.md 7 章）。",
+    "slides": "tiny3",
+    "rawFiles": [
+      48000
+    ],
+    "events": 15,
+    "issues": []
+  },
+  {
+    "name": "bad-undo-target",
+    "sessionId": "ex-bad-undo-target",
+    "en": "Invalid undo/redo targets: durable, rec-start, an unknown eventId and an undo event give bad-undo-target. A mark can be undone.",
+    "ja": "undo／redo の対象が不正：durable、rec-start、存在しない eventId、undo 自身を指すと bad-undo-target。mark は取り消せる。",
+    "slides": "tiny3",
+    "rawFiles": [
+      48000
+    ],
+    "events": 17,
+    "issues": [
+      "bad-undo-target",
+      "bad-undo-target",
+      "bad-undo-target",
+      "bad-undo-target"
+    ]
+  },
+  {
+    "name": "position-mismatch",
+    "sessionId": "ex-position-mismatch",
+    "en": "Position mismatch: the pos of an ok does not equal the previous raw files length plus sample.",
+    "ja": "位置の不整合：ok の pos が、(raw, sample) と前の録音ファイルの長さの合計に合わない。",
+    "slides": "tiny3",
+    "rawFiles": [
+      48000,
+      48000
+    ],
+    "events": 12,
+    "issues": [
+      "position-mismatch"
+    ]
+  },
+  {
+    "name": "beyond-raw-length",
+    "sessionId": "ex-beyond-raw-length",
+    "en": "Position beyond the raw file length: the next-slide position exceeds the raw file samples (48000).",
+    "ja": "録音ファイルの長さを超える位置：next-slide の位置が録音ファイルの samples（48000）を超える。",
+    "slides": "tiny3",
+    "rawFiles": [
+      48000
+    ],
+    "events": 7,
+    "issues": [
+      "beyond-raw-length"
+    ]
+  },
+  {
+    "name": "unknown-raw",
+    "sessionId": "ex-unknown-raw",
+    "en": "Unknown raw file: positions in rec-000003, which is not in rawFiles, give unknown-raw (pos cannot be verified).",
+    "ja": "知らない録音ファイル：rawFiles にない rec-000003 を指す位置は unknown-raw（位置の整合は確かめられない）。",
+    "slides": "tiny3",
+    "rawFiles": [
+      48000
+    ],
+    "events": 11,
+    "issues": [
+      "unknown-raw",
+      "unknown-raw",
+      "unknown-raw",
+      "unknown-raw",
+      "unknown-raw"
+    ]
+  },
+  {
+    "name": "empty-fragment",
+    "sessionId": "ex-empty-fragment",
+    "en": "Empty fragments (length 0) are dropped: right after an OK, right after a retake, and so on.",
+    "ja": "空の断片（長さ 0）を捨てる：OK のすぐあとの断片、撮り直しの直後の断片など。",
+    "slides": "tiny3",
+    "rawFiles": [
+      48000
+    ],
+    "events": 13,
+    "issues": []
+  },
+  {
+    "name": "public-sample",
+    "sessionId": "ex-public-sample",
+    "en": "Public sample (design 6.3): the raw file rotates across an OK point and a retake is undone.",
+    "ja": "公開の見本（設計書 6.3）：OK 点をまたいで録音ファイルが分かれ、撮り直しを取り消した例。",
+    "slides": "tiny3",
+    "rawFiles": [
+      48000,
+      48000
+    ],
+    "events": 23,
+    "issues": []
+  },
+  {
+    "name": "durable-many",
+    "sessionId": "ex-durable-many",
+    "en": "Many durable events: they do not change what is kept or discarded (removing all of them leaves the segments unchanged).",
+    "ja": "durable が多数並ぶ場面：保存位置の記録は、採用と破棄を変えない（durable を全部取り除いても区間は同じ）。",
+    "slides": "tiny3",
+    "rawFiles": [
+      48000
+    ],
+    "events": 28,
+    "issues": []
+  },
+  {
+    "name": "seq-gap",
+    "sessionId": "ex-seq-gap",
+    "en": "Sequence gap: seq 3 is missing. Reports seq-gap (at the first event after the gap) and interprets what it can.",
+    "ja": "seq の欠番：seq 3 がない。問題 seq-gap（欠番のあとの最初のイベントの seq を示す）を出し、読める範囲で解釈する。",
+    "slides": "tiny3",
+    "rawFiles": [
+      48000
+    ],
+    "events": 8,
+    "issues": [
+      "seq-gap"
+    ]
+  },
+  {
+    "name": "marks-misc",
+    "sessionId": "ex-marks-misc",
+    "en": "mark, test-rec and export do not change the interpretation. Only marks are listed in marks.",
+    "ja": "mark、test-rec、export は解釈に影響しない。mark だけを marks に記録する。",
+    "slides": "tiny3",
+    "rawFiles": [
+      48000
+    ],
+    "events": 10,
+    "issues": []
+  },
+  {
+    "name": "tiny3-full",
+    "sessionId": "ex-tiny3-full",
+    "en": "A full record of the 3-slide deck (tiny3) with one retake on slide 1. Kept audio uses a per-slide tone; the discarded part uses a different tone.",
+    "ja": "3 枚（tiny3）を録った全記録。1 枚目に撮り直しが 1 回。録音の中身はスライドごとに固有の周波数の音で、撮り直しで捨てた部分は別の音。",
+    "slides": "tiny3",
+    "rawFiles": [
+      48000
+    ],
+    "events": 24,
+    "issues": []
+  },
+  {
+    "name": "undo-future",
+    "sessionId": "ex-undo-future",
+    "en": "undo/redo that points to a later event: bad-undo-target when the target seq is not smaller than its own seq (ignored).",
+    "ja": "未来のイベントを指す undo／redo：対象の seq が自分の seq 以上なら bad-undo-target（無視する）。",
+    "slides": "tiny3",
+    "rawFiles": [
+      48000
+    ],
+    "events": 9,
+    "issues": [
+      "bad-undo-target",
+      "bad-undo-target"
+    ]
+  },
+  {
+    "name": "double-next-audio",
+    "sessionId": "ex-double-next-audio",
+    "en": "Two next-slide events while still recording, with audio after each: one orphan-audio per next-slide (2 issues).",
+    "ja": "録音を続けたまま next-slide が 2 回、間にも後にも音がある：orphan-audio は next-slide ごとに 2 件。",
+    "slides": "tiny3",
+    "rawFiles": [
+      48000
+    ],
+    "events": 8,
+    "issues": [
+      "orphan-audio",
+      "orphan-audio"
+    ]
+  },
+  {
+    "name": "double-next-silent",
+    "sessionId": "ex-double-next-silent",
+    "en": "Two next-slide events at the same position while recording, then rec-start at that position: no orphan-audio.",
+    "ja": "録音を続けたまま next-slide が 2 回、間に音がない（同じ位置）で、同じ位置の rec-start：orphan-audio は出ない。",
+    "slides": "tiny3",
+    "rawFiles": [
+      48000
+    ],
+    "events": 11,
+    "issues": []
+  },
+  {
+    "name": "render-clamp-empty",
+    "sessionId": "ex-render-clamp-empty",
+    "en": "A segment beyond the raw file length becomes empty (dropped when rendering) and its neighbours become continuous: no fade, the output equals the raw file.",
+    "ja": "録音ファイルの長さを超えて空になる区間（描画では取り除く）と、その前後が連続になる区間：描画ではフェードがかからず、録音ファイルの先頭 48000 サンプルと同じになる。",
+    "slides": "tiny3",
+    "rawFiles": [
+      48000
+    ],
+    "events": 14,
+    "issues": [
+      "beyond-raw-length",
+      "beyond-raw-length",
+      "beyond-raw-length"
+    ]
+  },
+  {
+    "name": "bad-event-retake",
+    "sessionId": "ex-bad-event-retake",
+    "en": "A retake without a toCheckpoint key: bad-event, ignored (only an explicit null goes back to the start of the take).",
+    "ja": "toCheckpoint のキーがない retake：bad-event を出して無視する（テイクの最初まで戻るのは、明示的な null のときだけ）。",
+    "slides": "tiny3",
+    "rawFiles": [
+      48000
+    ],
+    "events": 10,
+    "issues": [
+      "bad-event"
+    ]
+  },
+  {
+    "name": "bad-event-id",
+    "sessionId": "ex-bad-event-id",
+    "en": "An event whose eventId differs from e<seq>: bad-event, ignored (this ok does not exist).",
+    "ja": "eventId が e<seq> と違うイベント：bad-event を出して無視する（この ok は存在しないものとして扱う）。",
+    "slides": "tiny3",
+    "rawFiles": [
+      48000
+    ],
+    "events": 9,
+    "issues": [
+      "bad-event"
+    ]
+  },
+  {
+    "name": "recovered-multi-piece",
+    "sessionId": "ex-recovered-multi-piece",
+    "en": "recovered truncates several pieces: a piece that crosses the recovered position is cut; a piece that starts after it becomes empty and is dropped.",
+    "ja": "recovered で複数の断片を切り詰める：復旧できた位置より手前の断片は切り、位置より後ろにある断片は長さ 0 になるので捨てる。",
+    "slides": "tiny3",
+    "rawFiles": [
+      48000
+    ],
+    "events": 7,
+    "issues": []
+  },
+  {
+    "name": "recovered-multi-file",
+    "sessionId": "ex-recovered-multi-file",
+    "en": "recovered drops pieces in raw files after the recovered position.",
+    "ja": "recovered で、復旧できた位置より後ろの録音ファイルの断片を捨てる。",
+    "slides": "tiny3",
+    "rawFiles": [
+      48000,
+      48000
+    ],
+    "events": 6,
+    "issues": []
+  },
+  {
+    "name": "resume-while-recording",
+    "sessionId": "ex-resume-while-recording",
+    "en": "resume while recording: a new piece is added to the queue (the previous piece is not extended).",
+    "ja": "録音中の resume：recording が真でも、待ち行列に新しい断片を足す（前の断片は伸ばさない）。",
+    "slides": "tiny3",
+    "rawFiles": [
+      48000
+    ],
+    "events": 9,
+    "issues": []
+  }
+]

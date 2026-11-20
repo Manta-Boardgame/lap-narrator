@@ -1,0 +1,5 @@
+# バッチファイルは CRLF でないと cmd が壊れることがある（ルートの .gitattributes は * を eol=lf にしている）。
+*.bat text eol=crlf
+gradlew text eol=lf
+*.jar binary
+*.png binary

@@ -1,0 +1,63 @@
+{
+  "format": "lap-narrator/segments",
+  "version": 1,
+  "sessionId": "ex-beyond-raw-length",
+  "segments": [
+    {
+      "segmentId": "g00001",
+      "takeId": "t0001",
+      "slideId": "s0001",
+      "raw": "rec-000001",
+      "start": 0,
+      "end": 36000,
+      "startSec": 0,
+      "endSec": 0.75,
+      "status": "kept",
+      "order": 1
+    },
+    {
+      "segmentId": "g00002",
+      "takeId": "t0001",
+      "slideId": "s0001",
+      "raw": "rec-000001",
+      "start": 36000,
+      "end": 52800,
+      "startSec": 0.75,
+      "endSec": 1.1,
+      "status": "kept",
+      "order": 2
+    }
+  ],
+  "takes": [
+    {
+      "takeId": "t0001",
+      "slideId": "s0001",
+      "status": "closed",
+      "startSeq": 1,
+      "endSeq": 6,
+      "segments": [
+        "g00001",
+        "g00002"
+      ],
+      "samples": 52800,
+      "candidate": true
+    }
+  ],
+  "defaultTakes": {
+    "s0001": "t0001"
+  },
+  "recoverable": {
+    "pos": 43200,
+    "raw": "rec-000001",
+    "sample": 43200,
+    "lastCheckpointId": "c0002"
+  },
+  "marks": [],
+  "issues": [
+    {
+      "code": "beyond-raw-length",
+      "seq": 6,
+      "message": "sample 52800 is beyond rec-000001 length 48000"
+    }
+  ]
+}

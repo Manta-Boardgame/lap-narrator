@@ -1,0 +1,14 @@
+{"seq":0,"eventId":"e0","type":"session-start","wall":"2026-01-01T00:00:01.005Z","mono":1005,"sessionId":"ex-render-clamp-empty","projectId":"tiny3_demo","scriptHash":"fbbece90d93738c95d24ebe9e79e920d21446272dd7e9071a99b935e08755076","sampleRate":48000,"appVersion":"0.0.0-testgen"}
+{"seq":1,"eventId":"e1","type":"rec-start","wall":"2026-01-01T00:00:01.006Z","mono":1006,"at":{"raw":"rec-000001","sample":0,"pos":0},"slideId":"s0001","takeId":"t0001"}
+{"seq":2,"eventId":"e2","type":"durable","wall":"2026-01-01T00:00:01.312Z","mono":1312,"at":{"raw":"rec-000001","sample":15000,"pos":15000}}
+{"seq":3,"eventId":"e3","type":"ok","wall":"2026-01-01T00:00:01.625Z","mono":1625,"at":{"raw":"rec-000001","sample":30000,"pos":30000},"checkpointId":"c0001"}
+{"seq":4,"eventId":"e4","type":"pause","wall":"2026-01-01T00:00:01.626Z","mono":1626,"at":{"raw":"rec-000001","sample":30000,"pos":30000},"reason":"user"}
+{"seq":5,"eventId":"e5","type":"resume","wall":"2026-01-01T00:00:02.250Z","mono":2250,"at":{"raw":"rec-000001","sample":60000,"pos":60000}}
+{"seq":6,"eventId":"e6","type":"ok","wall":"2026-01-01T00:00:02.291Z","mono":2291,"at":{"raw":"rec-000001","sample":62000,"pos":62000},"checkpointId":"c0002"}
+{"seq":7,"eventId":"e7","type":"pause","wall":"2026-01-01T00:00:02.292Z","mono":2292,"at":{"raw":"rec-000001","sample":62000,"pos":62000},"reason":"user"}
+{"seq":8,"eventId":"e8","type":"resume","wall":"2026-01-01T00:00:02.293Z","mono":2293,"at":{"raw":"rec-000001","sample":30000,"pos":30000}}
+{"seq":9,"eventId":"e9","type":"durable","wall":"2026-01-01T00:00:02.294Z","mono":2294,"at":{"raw":"rec-000001","sample":40000,"pos":40000}}
+{"seq":10,"eventId":"e10","type":"ok","wall":"2026-01-01T00:00:02.295Z","mono":2295,"at":{"raw":"rec-000001","sample":48000,"pos":48000},"checkpointId":"c0003"}
+{"seq":11,"eventId":"e11","type":"durable","wall":"2026-01-01T00:00:02.296Z","mono":2296,"at":{"raw":"rec-000001","sample":48000,"pos":48000}}
+{"seq":12,"eventId":"e12","type":"pause","wall":"2026-01-01T00:00:02.297Z","mono":2297,"at":{"raw":"rec-000001","sample":48000,"pos":48000},"reason":"user"}
+{"seq":13,"eventId":"e13","type":"next-slide","wall":"2026-01-01T00:00:02.298Z","mono":2298,"at":{"raw":"rec-000001","sample":48000,"pos":48000},"checkpointId":"c0004","nextSlideId":"s0002"}

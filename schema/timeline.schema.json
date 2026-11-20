@@ -1,0 +1,120 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "lap-narrator/timeline",
+  "type": "object",
+  "required": [
+    "format",
+    "version",
+    "sampleRate",
+    "fps",
+    "prePadSamples",
+    "postPadSamples",
+    "slides",
+    "totalSamples"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "format": {
+      "const": "lap-narrator/timeline"
+    },
+    "version": {
+      "const": 1
+    },
+    "sampleRate": {
+      "type": "integer",
+      "minimum": 8000,
+      "maximum": 9007199254740991
+    },
+    "fps": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 120
+    },
+    "prePadSamples": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 9007199254740991
+    },
+    "postPadSamples": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 9007199254740991
+    },
+    "totalSamples": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 9007199254740991
+    },
+    "slides": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "slideId",
+          "order",
+          "image",
+          "audio",
+          "audioSamples",
+          "showStart",
+          "audioStart",
+          "audioEnd",
+          "showEnd"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "slideId": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_-]{1,64}$"
+          },
+          "order": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 9007199254740991
+          },
+          "image": {
+            "type": "string"
+          },
+          "audio": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "audioSamples": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 9007199254740991
+          },
+          "showStart": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "audioStart": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "audioEnd": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 9007199254740991
+          },
+          "showEnd": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 9007199254740991
+          }
+        }
+      }
+    }
+  }
+}

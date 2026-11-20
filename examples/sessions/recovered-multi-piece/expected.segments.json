@@ -1,0 +1,41 @@
+{
+  "format": "lap-narrator/segments",
+  "version": 1,
+  "sessionId": "ex-recovered-multi-piece",
+  "segments": [
+    {
+      "segmentId": "g00001",
+      "takeId": "t0001",
+      "slideId": "s0001",
+      "raw": "rec-000001",
+      "start": 0,
+      "end": 12000,
+      "startSec": 0,
+      "endSec": 0.25,
+      "status": "uncommitted",
+      "reason": "uncommitted-after-recovery",
+      "order": null
+    }
+  ],
+  "takes": [
+    {
+      "takeId": "t0001",
+      "slideId": "s0001",
+      "status": "closed",
+      "startSeq": 1,
+      "endSeq": 6,
+      "segments": [],
+      "samples": 0,
+      "candidate": false
+    }
+  ],
+  "defaultTakes": {},
+  "recoverable": {
+    "pos": 24000,
+    "raw": "rec-000001",
+    "sample": 24000,
+    "lastCheckpointId": null
+  },
+  "marks": [],
+  "issues": []
+}

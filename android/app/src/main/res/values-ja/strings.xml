@@ -1,0 +1,5 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="recording_channel_name">録音</string>
+    <string name="recording_channel_description">マイクを使っている間に表示します。画面を消しても録音を続けるためのものです。</string>
+</resources>

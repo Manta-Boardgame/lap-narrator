@@ -1,0 +1,18 @@
+{
+  "name": "en",
+  "projectId": "en_garden_demo",
+  "title": "Lantern Cove Community Garden (fictional)",
+  "lang": "en",
+  "seed": "en",
+  "image": { "width": 320, "height": 180 },
+  "slides": [
+    { "title": "Welcome", "text": "Good evening, everyone. Today I will introduce the Lantern Cove community garden project.", "recordable": true, "speaker": "Speaker A", "targetSec": 8 },
+    { "title": "Why", "text": "Many neighbors told us they want a quiet place to grow vegetables and meet each other.", "recordable": true, "speaker": "Speaker A", "targetSec": 9 },
+    { "title": "Where", "text": "The garden will use an empty lot beside the old bus stop, about four hundred square meters.", "recordable": true, "speaker": "Speaker A", "targetSec": 9 },
+    { "title": "Supplement (hidden)", "text": "This hidden slide holds the soil test table.", "recordable": false, "hidden": true },
+    { "title": "Plots", "text": "We plan thirty small plots, each rented for one season at a low price.", "recordable": true, "speaker": "Speaker B", "targetSec": 8 },
+    { "title": "Schedule", "text": "Building starts in March, and the first planting day is in late April.", "recordable": true, "speaker": "Speaker B", "targetSec": 7 },
+    { "title": "Budget", "text": "The total cost is about five thousand dollars, mostly for soil, fences, and tools.", "recordable": true, "speaker": "Speaker B", "targetSec": 9 },
+    { "title": "Thank you", "text": "Thank you for listening. Please tell us your questions and ideas.", "recordable": true, "speaker": "Speaker A", "targetSec": 6 }
+  ]
+}

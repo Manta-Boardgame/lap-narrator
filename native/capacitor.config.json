@@ -1,0 +1,13 @@
+{
+  "appId": "io.github.lapnarrator",
+  "appName": "lap-narrator",
+  "webDir": "www",
+  "android": {
+    "path": "../android",
+    "allowMixedContent": false
+  },
+  "server": {
+    "androidScheme": "https",
+    "appStartPath": "/app/index.html?nosw=1"
+  }
+}

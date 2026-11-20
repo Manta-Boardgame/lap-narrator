@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">lap-narrator</string>
+    <string name="title_activity_main">lap-narrator</string>
+    <string name="package_name">io.github.lapnarrator</string>
+    <string name="custom_url_scheme">io.github.lapnarrator</string>
+    <string name="recording_channel_name">Recording</string>
+    <string name="alert_channel_name">Recording stopped</string>
+    <string name="alert_channel_description">Sound and vibration when audio stops coming in during a recording.</string>
+    <string name="recording_channel_description">Shown while the microphone is in use so recording can continue with the screen off.</string>
+</resources>

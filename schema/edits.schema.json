@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "lap-narrator/edits",
+  "type": "object",
+  "required": [
+    "format",
+    "version",
+    "sessionId",
+    "editVersion"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "format": {
+      "const": "lap-narrator/edits"
+    },
+    "version": {
+      "const": 1
+    },
+    "sessionId": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_-]{6,64}$"
+    },
+    "editVersion": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 9007199254740991
+    },
+    "joins": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "takeId",
+          "index"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "takeId": {
+            "type": "string",
+            "pattern": "^t[0-9]{4}$"
+          },
+          "index": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 9007199254740991
+          },
+          "trimPrevEnd": {
+            "type": "integer",
+            "maximum": 9007199254740991
+          },
+          "shiftNextStart": {
+            "type": "integer",
+            "maximum": 9007199254740991
+          }
+        }
+      }
+    },
+    "fadeSamples": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 9007199254740991
+    },
+    "gainDb": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "selections": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "limiter": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "ceilingDb": {
+          "type": "number",
+          "maximum": 0
+        }
+      }
+    }
+  }
+}

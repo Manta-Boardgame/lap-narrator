@@ -1,0 +1,70 @@
+{
+  "format": "lap-narrator/manifest",
+  "version": 1,
+  "kind": "full",
+  "projectId": "tiny3_demo",
+  "scriptHash": "fbbece90d93738c95d24ebe9e79e920d21446272dd7e9071a99b935e08755076",
+  "sessionId": "ex-tiny3-full",
+  "exportId": "exp-tiny3-full",
+  "volume": 1,
+  "volumes": 1,
+  "appVersion": "0.0.0-testgen",
+  "speaker": "Speaker A",
+  "device": {
+    "kind": "testgen",
+    "note": "synthetic example, no real device"
+  },
+  "mic": {
+    "requested": {
+      "echoCancellation": false,
+      "autoGainControl": false,
+      "noiseSuppression": false
+    },
+    "actual": {
+      "sampleRate": 48000,
+      "note": "synthetic"
+    }
+  },
+  "rawFiles": [
+    {
+      "file": "raw/rec-000001.wav",
+      "sampleRate": 48000,
+      "samples": 48000,
+      "sha256": "3202f21a619c0c8774618a6574ab49e0e6afe6a543d76c2c6beb7a41aae00f75",
+      "durableSamples": 43200
+    }
+  ],
+  "files": [
+    {
+      "path": "README.txt",
+      "bytes": 736,
+      "sha256": "12d4dcf1f57a03155a262e4fa8284e02a19c28389788e3f3e42e3a9f48c26a0a"
+    },
+    {
+      "path": "script.json",
+      "bytes": 1719,
+      "sha256": "ce06351ade7ca66c2a955190c2a85132f08a123b19252c2766f6d31499fb282d"
+    },
+    {
+      "path": "events.jsonl",
+      "bytes": 3874,
+      "sha256": "3c44da58d855f186a0a926911549b4f706c0f5f0a77ad044929a33d3475521c4"
+    },
+    {
+      "path": "segments.json",
+      "bytes": 2320,
+      "sha256": "dea0c622bec1cd2c8327133de016aa8bd2bdfa36b6fd8971e7c10cb2a430f1e0"
+    },
+    {
+      "path": "edits.json",
+      "bytes": 127,
+      "sha256": "6ef7287e206e141816ba23d0a27447260b7b6d5e0fcbc976ed2b6870e4db46ca"
+    },
+    {
+      "path": "raw/rec-000001.wav",
+      "bytes": 96044,
+      "sha256": "3202f21a619c0c8774618a6574ab49e0e6afe6a543d76c2c6beb7a41aae00f75"
+    }
+  ],
+  "createdAt": "2026-01-01T00:00:00.000Z"
+}

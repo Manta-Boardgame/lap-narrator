@@ -1,0 +1,225 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "lap-narrator/manifest",
+  "type": "object",
+  "required": [
+    "format",
+    "version",
+    "kind",
+    "projectId",
+    "scriptHash",
+    "sessionId",
+    "exportId",
+    "volume",
+    "volumes",
+    "appVersion",
+    "files",
+    "createdAt"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "format": {
+      "const": "lap-narrator/manifest"
+    },
+    "version": {
+      "const": 1
+    },
+    "kind": {
+      "type": "string",
+      "enum": [
+        "full",
+        "final"
+      ]
+    },
+    "projectId": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_-]{6,64}$"
+    },
+    "scriptHash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "sessionId": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_-]{6,64}$"
+    },
+    "exportId": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_-]{6,64}$"
+    },
+    "volume": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 9007199254740991
+    },
+    "volumes": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 9007199254740991
+    },
+    "appVersion": {
+      "type": "string"
+    },
+    "speaker": {
+      "type": "string"
+    },
+    "device": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "mic": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "rawFiles": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "file",
+          "sampleRate",
+          "samples",
+          "sha256"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "file": {
+            "type": "string",
+            "pattern": "^(?![/\\\\])(?![A-Za-z]:)(?!.*(?:^|/)\\.\\.(?:/|$))(?!.*\\\\).+$"
+          },
+          "sampleRate": {
+            "type": "integer",
+            "minimum": 8000,
+            "maximum": 9007199254740991
+          },
+          "samples": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "durableSamples": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          }
+        }
+      }
+    },
+    "files": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "path",
+          "bytes",
+          "sha256"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "path": {
+            "type": "string",
+            "pattern": "^(?![/\\\\])(?![A-Za-z]:)(?!.*(?:^|/)\\.\\.(?:/|$))(?!.*\\\\).+$"
+          },
+          "bytes": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          }
+        }
+      }
+    },
+    "renderSpec": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "finals": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "slideId",
+          "takeId",
+          "parts",
+          "samples",
+          "sampleRate"
+        ],
+        "additionalProperties": true,
+        "properties": {
+          "slideId": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_-]{1,64}$"
+          },
+          "takeId": {
+            "type": "string",
+            "pattern": "^t[0-9]{4}$"
+          },
+          "samples": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 9007199254740991
+          },
+          "sampleRate": {
+            "type": "integer",
+            "minimum": 8000,
+            "maximum": 9007199254740991
+          },
+          "parts": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": [
+                "file",
+                "samples",
+                "sha256"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "file": {
+                  "type": "string",
+                  "pattern": "^(?![/\\\\])(?![A-Za-z]:)(?!.*(?:^|/)\\.\\.(?:/|$))(?!.*\\\\).+$"
+                },
+                "samples": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 9007199254740991
+                },
+                "sha256": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$"
+                }
+              }
+            }
+          },
+          "applied": {
+            "type": "object",
+            "additionalProperties": true
+          }
+        }
+      }
+    },
+    "createdAt": {
+      "type": "string"
+    },
+    "editVersion": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 9007199254740991
+    },
+    "recording": {
+      "type": "string",
+      "enum": [
+        "continuous",
+        "per-slide"
+      ]
+    }
+  }
+}

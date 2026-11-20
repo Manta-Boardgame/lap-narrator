@@ -1,0 +1,75 @@
+{
+  "format": "lap-narrator/segments",
+  "version": 1,
+  "sessionId": "ex-orphan-audio",
+  "segments": [
+    {
+      "segmentId": "g00001",
+      "takeId": "t0001",
+      "slideId": "s0001",
+      "raw": "rec-000001",
+      "start": 0,
+      "end": 9600,
+      "startSec": 0,
+      "endSec": 0.2,
+      "status": "kept",
+      "order": 1
+    },
+    {
+      "segmentId": "g00002",
+      "takeId": "t0002",
+      "slideId": "s0002",
+      "raw": "rec-000001",
+      "start": 19200,
+      "end": 28800,
+      "startSec": 0.4,
+      "endSec": 0.6,
+      "status": "kept",
+      "order": 1
+    }
+  ],
+  "takes": [
+    {
+      "takeId": "t0001",
+      "slideId": "s0001",
+      "status": "closed",
+      "startSeq": 1,
+      "endSeq": 3,
+      "segments": [
+        "g00001"
+      ],
+      "samples": 9600,
+      "candidate": true
+    },
+    {
+      "takeId": "t0002",
+      "slideId": "s0002",
+      "status": "closed",
+      "startSeq": 5,
+      "endSeq": 10,
+      "segments": [
+        "g00002"
+      ],
+      "samples": 9600,
+      "candidate": true
+    }
+  ],
+  "defaultTakes": {
+    "s0001": "t0001",
+    "s0002": "t0002"
+  },
+  "recoverable": {
+    "pos": 28800,
+    "raw": "rec-000001",
+    "sample": 28800,
+    "lastCheckpointId": "c0003"
+  },
+  "marks": [],
+  "issues": [
+    {
+      "code": "orphan-audio",
+      "seq": 3,
+      "message": "recording continues after next-slide"
+    }
+  ]
+}

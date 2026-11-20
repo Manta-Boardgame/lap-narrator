@@ -1,0 +1,22 @@
+{
+  "name": "edge",
+  "projectId": "edge_demo",
+  "title": "意地の悪い例 edge cases（日本語 と space を含む題名）",
+  "lang": "ja",
+  "seed": "edge",
+  "image": { "width": 320, "height": 180 },
+  "slides": [
+    { "title": "普通", "text": "これは普通のスライドです。", "recordable": true, "speaker": "話者A", "targetSec": 4 },
+    { "title": "補足（読まない）", "text": "このスライドは録音しません。", "recordable": false, "hidden": true },
+    { "title": "空の文", "text": "", "recordable": true },
+    { "title": "長い文", "textRepeat": { "unit": "これは長い文を試すための、ごく普通の一文です。", "times": 24 }, "recordable": true, "targetSec": 60 },
+    { "title": "絵文字", "text": "パンダ🐼とお寿司🍣、家族👨‍👩‍👧‍👦、旗🇯🇵、虹🌈のことを話します。", "recordable": true },
+    { "title": "日本語の　題名 with   spaces（全角と半角の空白）", "text": "題名に空白が入っていても、読む文は変わりません。", "recordable": true },
+    { "title": "引用符と制御文字", "text": "「引用」と \"ダブルクォート\" と バックスラッシュ \\ と、タブ\tと、改行\nの次の行です。", "recordable": true },
+    { "title": "特殊な空白", "text": "ノーブレークスペース と、ゼロ幅スペース​と、行区切り を含みます。", "recordable": true },
+    { "title": "結合文字", "text": "濁点の結合文字（NFD）：がぎぐ。", "recordable": true },
+    { "title": "空白だけ", "text": "   ", "recordable": true },
+    { "title": "普通（重複）", "text": "これは普通のスライドです。", "recordable": true, "speaker": "話者B", "targetSec": 0 },
+    { "title": "English and 数字", "text": "Hello, world! 円周率は 3.14159 です。", "recordable": true, "speaker": "話者B" }
+  ]
+}

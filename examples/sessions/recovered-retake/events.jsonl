@@ -1,0 +1,13 @@
+{"seq":0,"eventId":"e0","type":"session-start","wall":"2026-01-01T00:00:01.005Z","mono":1005,"sessionId":"ex-recovered-retake","projectId":"tiny3_demo","scriptHash":"fbbece90d93738c95d24ebe9e79e920d21446272dd7e9071a99b935e08755076","sampleRate":48000,"appVersion":"0.0.0-testgen"}
+{"seq":1,"eventId":"e1","type":"rec-start","wall":"2026-01-01T00:00:01.006Z","mono":1006,"at":{"raw":"rec-000001","sample":0,"pos":0},"slideId":"s0001","takeId":"t0001"}
+{"seq":2,"eventId":"e2","type":"durable","wall":"2026-01-01T00:00:01.200Z","mono":1200,"at":{"raw":"rec-000001","sample":9600,"pos":9600}}
+{"seq":3,"eventId":"e3","type":"ok","wall":"2026-01-01T00:00:01.300Z","mono":1300,"at":{"raw":"rec-000001","sample":14400,"pos":14400},"checkpointId":"c0001"}
+{"seq":4,"eventId":"e4","type":"durable","wall":"2026-01-01T00:00:01.500Z","mono":1500,"at":{"raw":"rec-000001","sample":24000,"pos":24000}}
+{"seq":5,"eventId":"e5","type":"recovered","wall":"2026-01-01T00:00:01.501Z","mono":1501,"at":{"raw":"rec-000001","sample":24000,"pos":24000},"lastCheckpointId":"c0001","notes":"recovered after force quit"}
+{"seq":6,"eventId":"e6","type":"retake","wall":"2026-01-01T00:00:01.502Z","mono":1502,"at":{"raw":"rec-000001","sample":24000,"pos":24000},"toCheckpoint":"c0001"}
+{"seq":7,"eventId":"e7","type":"resume","wall":"2026-01-01T00:00:02.000Z","mono":2000,"at":{"raw":"rec-000002","sample":0,"pos":48000}}
+{"seq":8,"eventId":"e8","type":"durable","wall":"2026-01-01T00:00:02.200Z","mono":2200,"at":{"raw":"rec-000002","sample":9600,"pos":57600}}
+{"seq":9,"eventId":"e9","type":"ok","wall":"2026-01-01T00:00:02.300Z","mono":2300,"at":{"raw":"rec-000002","sample":14400,"pos":62400},"checkpointId":"c0002"}
+{"seq":10,"eventId":"e10","type":"durable","wall":"2026-01-01T00:00:02.301Z","mono":2301,"at":{"raw":"rec-000002","sample":14400,"pos":62400}}
+{"seq":11,"eventId":"e11","type":"pause","wall":"2026-01-01T00:00:02.302Z","mono":2302,"at":{"raw":"rec-000002","sample":14400,"pos":62400},"reason":"user"}
+{"seq":12,"eventId":"e12","type":"next-slide","wall":"2026-01-01T00:00:02.303Z","mono":2303,"at":{"raw":"rec-000002","sample":14400,"pos":62400},"checkpointId":"c0003","nextSlideId":"s0002"}

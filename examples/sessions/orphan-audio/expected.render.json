@@ -1,0 +1,19 @@
+{
+  "note": "Expected final PCM (SHA-256 of 16-bit little-endian samples) for each default take, from test/oracle/render-oracle.js. Wave-1 scope: no resampling, gain 0 dB, no limiter. See dev/proposals/E-002.md.",
+  "sampleRate": 48000,
+  "fadeSamples": 384,
+  "finals": [
+    {
+      "slideId": "s0001",
+      "takeId": "t0001",
+      "samples": 9600,
+      "sha256": "65e0c06f68655e98abd3e799e35e0ab3bf4c333e9d0be605d71f7c52b3a6dc3a"
+    },
+    {
+      "slideId": "s0002",
+      "takeId": "t0002",
+      "samples": 9600,
+      "sha256": "fba30166c534bbbb703489da29d46e980d5db2543eb3c56b555ee6cd85fc77e8"
+    }
+  ]
+}

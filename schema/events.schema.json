@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "lap-narrator/event",
+  "description": "events.jsonl の 1 行。type ごとの必須項目は core/reduce の検査で確かめる（CONTRACTS.md 1.4）。",
+  "type": "object",
+  "required": [
+    "seq",
+    "eventId",
+    "type",
+    "wall",
+    "mono"
+  ],
+  "additionalProperties": true,
+  "properties": {
+    "seq": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 9007199254740991
+    },
+    "eventId": {
+      "type": "string",
+      "pattern": "^e[0-9]+$"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "session-start",
+        "test-rec",
+        "rec-start",
+        "file-rotate",
+        "durable",
+        "ok",
+        "retake",
+        "next-slide",
+        "goto-slide",
+        "pause",
+        "resume",
+        "recovered",
+        "mark",
+        "undo",
+        "redo",
+        "export"
+      ]
+    },
+    "wall": {
+      "type": "string"
+    },
+    "mono": {
+      "type": "number",
+      "minimum": 0
+    },
+    "at": {
+      "type": "object",
+      "required": [
+        "raw",
+        "sample",
+        "pos"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "raw": {
+          "type": "string",
+          "pattern": "^rec-[0-9]{6}$"
+        },
+        "sample": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "pos": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        }
+      }
+    },
+    "slideId": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_-]{1,64}$"
+    },
+    "takeId": {
+      "type": "string",
+      "pattern": "^t[0-9]{4}$"
+    },
+    "checkpointId": {
+      "type": "string",
+      "pattern": "^c[0-9]{4}$"
+    },
+    "target": {
+      "type": "string",
+      "pattern": "^e[0-9]+$"
+    },
+    "toCheckpoint": {
+      "oneOf": [
+        {
+          "type": "string",
+          "pattern": "^c[0-9]{4}$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  }
+}

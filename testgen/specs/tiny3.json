@@ -1,0 +1,13 @@
+{
+  "name": "tiny3",
+  "projectId": "tiny3_demo",
+  "title": "夜の読み聞かせ会（最小の 3 枚）",
+  "lang": "ja",
+  "seed": "tiny3",
+  "image": { "width": 320, "height": 180 },
+  "slides": [
+    { "title": "はじめに", "text": "これは試験のための架空の発表です。ほしぞら町の図書館で開く、夜の読み聞かせ会を紹介します。", "recordable": true, "speaker": "話者A", "targetSec": 12 },
+    { "title": "内容", "text": "会は毎月第二金曜日の夜に開き、絵本を三冊、ゆっくり読みます。", "recordable": true, "speaker": "話者A", "targetSec": 9 },
+    { "title": "おわりに", "text": "ご清聴ありがとうございました。ご来場をお待ちしています。", "recordable": true, "speaker": "話者A", "targetSec": 8 }
+  ]
+}

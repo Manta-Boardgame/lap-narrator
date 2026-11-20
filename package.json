@@ -1,0 +1,42 @@
+{
+  "name": "lap-narrator",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Record slide narration on a phone, then build a video on a PC: transcript alignment, per-slide audio, and MP4 output.",
+  "author": "Takahashi Raiki",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test \"test/contracts/**/*.test.js\" \"test/core/**/*.test.js\" \"test/cli/**/*.test.js\" \"test/oracle/**/*.test.js\" \"test/organizer/**/*.test.js\" \"test/checker/**/*.test.js\"",
+    "test:contracts": "node --test \"test/contracts/**/*.test.js\"",
+    "test:core": "node --test \"test/core/**/*.test.js\"",
+    "test:cli": "node --test \"test/cli/**/*.test.js\"",
+    "test:oracle": "node --test \"test/oracle/**/*.test.js\"",
+    "test:app": "node --test \"test/app/**/*.test.js\"",
+    "test:builder": "node --test \"test/builder/**/*.test.js\"",
+    "test:organizer": "node --test \"test/organizer/**/*.test.js\"",
+    "test:checker": "node --test \"test/checker/**/*.test.js\"",
+    "test:speech": "node --test --test-timeout=900000 \"test/speech/**/*.test.js\"",
+    "test:e2e": "node --test \"test/e2e/**/*.test.js\"",
+    "test:device": "node --test \"test/device/**/*.test.js\"",
+    "test:all": "node --test \"test/contracts/**/*.test.js\" \"test/core/**/*.test.js\" \"test/cli/**/*.test.js\" \"test/oracle/**/*.test.js\" \"test/organizer/**/*.test.js\" \"test/checker/**/*.test.js\" \"test/builder/**/*.test.js\"",
+    "prepare:android": "node native/scripts/prepare-www.mjs",
+    "build:android": "node native/scripts/build-android.mjs",
+    "test:native": "node native/test/bridge-check.mjs && node native/test/release-check.mjs",
+    "test:native-device": "node --test \"test/native-device/guard.test.js\"",
+    "test:native-device:run": "node --test \"test/native-device/native-device.test.js\"",
+    "test:native-emulator": "node --test \"test/native-emulator/save-flow.test.js\"",
+    "test:native-emulator:app": "node --test \"test/native-emulator/app-flow.test.js\""
+  },
+  "devDependencies": {
+    "@capacitor/android": "^8.6.2",
+    "@capacitor/cli": "^8.6.2",
+    "@capacitor/core": "^8.6.2",
+    "playwright-core": "^1.65.1",
+    "pptxgenjs": "^4.0.1",
+    "typescript": "^7.0.2"
+  }
+}

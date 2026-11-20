@@ -1,0 +1,14 @@
+{
+  "name": "tiny3h",
+  "projectId": "tiny3h_demo",
+  "title": "夜の読み聞かせ会（非表示と空のノートを含む 4 枚）",
+  "lang": "ja",
+  "seed": "tiny3h",
+  "image": { "width": 320, "height": 180 },
+  "slides": [
+    { "title": "はじめに", "text": "これは試験のための架空の発表です。夜の読み聞かせ会を紹介します。", "recordable": true, "speaker": "話者A", "targetSec": 8 },
+    { "title": "補足（非表示）", "text": "", "recordable": false, "hidden": true, "notes": "非表示の補足スライドです。録音しません。" },
+    { "title": "仕切り", "text": "", "recordable": false },
+    { "title": "おわりに", "text": "ご清聴ありがとうございました。", "recordable": true, "speaker": "話者A", "targetSec": 4 }
+  ]
+}

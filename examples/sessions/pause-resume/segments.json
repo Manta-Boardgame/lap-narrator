@@ -1,0 +1,70 @@
+{
+  "format": "lap-narrator/segments",
+  "version": 1,
+  "sessionId": "ex-pause-resume",
+  "segments": [
+    {
+      "segmentId": "g00001",
+      "takeId": "t0001",
+      "slideId": "s0001",
+      "raw": "rec-000001",
+      "start": 0,
+      "end": 14400,
+      "startSec": 0,
+      "endSec": 0.3,
+      "status": "kept",
+      "order": 1
+    },
+    {
+      "segmentId": "g00002",
+      "takeId": "t0001",
+      "slideId": "s0001",
+      "raw": "rec-000001",
+      "start": 14400,
+      "end": 28800,
+      "startSec": 0.3,
+      "endSec": 0.6,
+      "status": "kept",
+      "order": 2
+    },
+    {
+      "segmentId": "g00003",
+      "takeId": "t0001",
+      "slideId": "s0001",
+      "raw": "rec-000001",
+      "start": 36000,
+      "end": 43200,
+      "startSec": 0.75,
+      "endSec": 0.9,
+      "status": "kept",
+      "order": 3
+    }
+  ],
+  "takes": [
+    {
+      "takeId": "t0001",
+      "slideId": "s0001",
+      "status": "closed",
+      "startSeq": 1,
+      "endSeq": 14,
+      "segments": [
+        "g00001",
+        "g00002",
+        "g00003"
+      ],
+      "samples": 36000,
+      "candidate": true
+    }
+  ],
+  "defaultTakes": {
+    "s0001": "t0001"
+  },
+  "recoverable": {
+    "pos": 43200,
+    "raw": "rec-000001",
+    "sample": 43200,
+    "lastCheckpointId": "c0002"
+  },
+  "marks": [],
+  "issues": []
+}

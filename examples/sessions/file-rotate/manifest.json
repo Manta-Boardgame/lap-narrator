@@ -1,0 +1,82 @@
+{
+  "format": "lap-narrator/manifest",
+  "version": 1,
+  "kind": "full",
+  "projectId": "tiny3_demo",
+  "scriptHash": "fbbece90d93738c95d24ebe9e79e920d21446272dd7e9071a99b935e08755076",
+  "sessionId": "ex-file-rotate",
+  "exportId": "exp-file-rotate",
+  "volume": 1,
+  "volumes": 1,
+  "appVersion": "0.0.0-testgen",
+  "speaker": "Speaker A",
+  "device": {
+    "kind": "testgen",
+    "note": "synthetic example, no real device"
+  },
+  "mic": {
+    "requested": {
+      "echoCancellation": false,
+      "autoGainControl": false,
+      "noiseSuppression": false
+    },
+    "actual": {
+      "sampleRate": 48000,
+      "note": "synthetic"
+    }
+  },
+  "rawFiles": [
+    {
+      "file": "raw/rec-000001.wav",
+      "sampleRate": 48000,
+      "samples": 48000,
+      "sha256": "af5d88de6c69b213c4637498dabc0b94f532e0959af925a4e3ef084749f5108c",
+      "durableSamples": 48000
+    },
+    {
+      "file": "raw/rec-000002.wav",
+      "sampleRate": 48000,
+      "samples": 48000,
+      "sha256": "a6773639a3649964e4050851d2d68133dcddbb3c05f14e84e974b5404356400b",
+      "durableSamples": 9600
+    }
+  ],
+  "files": [
+    {
+      "path": "README.txt",
+      "bytes": 642,
+      "sha256": "f95e2112484636f4b6ad6630beeb45df242be4b52cefa8645eeaaf30e1fda619"
+    },
+    {
+      "path": "script.json",
+      "bytes": 1719,
+      "sha256": "ce06351ade7ca66c2a955190c2a85132f08a123b19252c2766f6d31499fb282d"
+    },
+    {
+      "path": "events.jsonl",
+      "bytes": 1903,
+      "sha256": "ee9dd37e0fd4e98e549f3152187764f08e6113ea18a6db291b0b82526abe19b1"
+    },
+    {
+      "path": "segments.json",
+      "bytes": 1309,
+      "sha256": "1083a004f470a91aeac142005ad40817bb142fe6a6d7880796c4eeecde903b48"
+    },
+    {
+      "path": "edits.json",
+      "bytes": 128,
+      "sha256": "917c7c19c51d5d136bc50003b6921034a5362e2bc01271533ac63492690228b7"
+    },
+    {
+      "path": "raw/rec-000001.wav",
+      "bytes": 96044,
+      "sha256": "af5d88de6c69b213c4637498dabc0b94f532e0959af925a4e3ef084749f5108c"
+    },
+    {
+      "path": "raw/rec-000002.wav",
+      "bytes": 96044,
+      "sha256": "a6773639a3649964e4050851d2d68133dcddbb3c05f14e84e974b5404356400b"
+    }
+  ],
+  "createdAt": "2026-01-01T00:00:00.000Z"
+}

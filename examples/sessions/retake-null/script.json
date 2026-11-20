@@ -1,0 +1,45 @@
+{
+  "format": "lap-narrator/script",
+  "version": 1,
+  "projectId": "tiny3_demo",
+  "title": "夜の読み聞かせ会（最小の 3 枚）",
+  "scriptHash": "fbbece90d93738c95d24ebe9e79e920d21446272dd7e9071a99b935e08755076",
+  "slides": [
+    {
+      "slideId": "s0001",
+      "order": 1,
+      "title": "はじめに",
+      "text": "これは試験のための架空の発表です。ほしぞら町の図書館で開く、夜の読み聞かせ会を紹介します。",
+      "recordable": true,
+      "speaker": "話者A",
+      "targetSec": 12,
+      "image": "slides/0001.png",
+      "imageSha256": "865335ee47fbd785ac33061d56946d81a170639676f4f38b6d59c3225bf494c3",
+      "textHash": "c2102fbccdaf404e64e2a8826d9929bc09f0e016cdf511ab930ad30c1e186dc0"
+    },
+    {
+      "slideId": "s0002",
+      "order": 2,
+      "title": "内容",
+      "text": "会は毎月第二金曜日の夜に開き、絵本を三冊、ゆっくり読みます。",
+      "recordable": true,
+      "speaker": "話者A",
+      "targetSec": 9,
+      "image": "slides/0002.png",
+      "imageSha256": "db169b86aeb78454d40a8a7ce8ac1fe362cd89a839fcfbdfdda2a1504438ae7e",
+      "textHash": "e9d4a311f794b9f48b012dcb5324418cf594f1892bff03bd880b9a4a225a18bd"
+    },
+    {
+      "slideId": "s0003",
+      "order": 3,
+      "title": "おわりに",
+      "text": "ご清聴ありがとうございました。ご来場をお待ちしています。",
+      "recordable": true,
+      "speaker": "話者A",
+      "targetSec": 8,
+      "image": "slides/0003.png",
+      "imageSha256": "f732912787cb8a7d4a79e4c01040a7c040f129dbe5e487a7041e2670f0d819ba",
+      "textHash": "852d87c7108a86c7b35b5366a680ba09bf01d4e3af539efe09757f910dfb094c"
+    }
+  ]
+}

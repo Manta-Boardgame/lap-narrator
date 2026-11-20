@@ -1,0 +1,6 @@
+{"seq":0,"eventId":"e0","type":"session-start","wall":"2026-01-01T00:00:01.005Z","mono":1005,"sessionId":"ex-recovered-multi-file","projectId":"tiny3_demo","scriptHash":"fbbece90d93738c95d24ebe9e79e920d21446272dd7e9071a99b935e08755076","sampleRate":48000,"appVersion":"0.0.0-testgen"}
+{"seq":1,"eventId":"e1","type":"rec-start","wall":"2026-01-01T00:00:01.006Z","mono":1006,"at":{"raw":"rec-000001","sample":0,"pos":0},"slideId":"s0001","takeId":"t0001"}
+{"seq":2,"eventId":"e2","type":"durable","wall":"2026-01-01T00:00:01.500Z","mono":1500,"at":{"raw":"rec-000001","sample":24000,"pos":24000}}
+{"seq":3,"eventId":"e3","type":"file-rotate","wall":"2026-01-01T00:00:02.000Z","mono":2000,"from":"rec-000001","to":"rec-000002","at":{"raw":"rec-000001","sample":48000,"pos":48000},"toAt":{"raw":"rec-000002","sample":0,"pos":48000}}
+{"seq":4,"eventId":"e4","type":"durable","wall":"2026-01-01T00:00:02.200Z","mono":2200,"at":{"raw":"rec-000002","sample":9600,"pos":57600}}
+{"seq":5,"eventId":"e5","type":"recovered","wall":"2026-01-01T00:00:02.201Z","mono":2201,"at":{"raw":"rec-000001","sample":30000,"pos":30000},"lastCheckpointId":null,"notes":"recovered; rec-000002 is lost"}

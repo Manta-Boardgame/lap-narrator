@@ -1,0 +1,7 @@
+{
+  "name": "lap-narrator-native",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Capacitor wrapper settings for the Android app. Dependencies live in the repository root package.json."
+}

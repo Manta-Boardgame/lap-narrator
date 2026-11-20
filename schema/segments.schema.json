@@ -1,0 +1,244 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "lap-narrator/segments",
+  "type": "object",
+  "required": [
+    "format",
+    "version",
+    "sessionId",
+    "segments",
+    "takes",
+    "defaultTakes",
+    "issues"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "format": {
+      "const": "lap-narrator/segments"
+    },
+    "version": {
+      "const": 1
+    },
+    "sessionId": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_-]{6,64}$"
+    },
+    "segments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "segmentId",
+          "takeId",
+          "slideId",
+          "raw",
+          "start",
+          "end",
+          "status",
+          "order"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "segmentId": {
+            "type": "string",
+            "pattern": "^g[0-9]{5,}$"
+          },
+          "takeId": {
+            "type": "string",
+            "pattern": "^t[0-9]{4}$"
+          },
+          "slideId": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_-]{1,64}$"
+          },
+          "raw": {
+            "type": "string",
+            "pattern": "^rec-[0-9]{6}$"
+          },
+          "start": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "end": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 9007199254740991
+          },
+          "startSec": {
+            "type": "number",
+            "minimum": 0
+          },
+          "endSec": {
+            "type": "number",
+            "minimum": 0
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "kept",
+              "discarded",
+              "uncommitted"
+            ]
+          },
+          "reason": {
+            "type": "string"
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 9007199254740991
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "takes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "takeId",
+          "slideId",
+          "status",
+          "startSeq",
+          "segments",
+          "samples",
+          "candidate"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "takeId": {
+            "type": "string",
+            "pattern": "^t[0-9]{4}$"
+          },
+          "slideId": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_-]{1,64}$"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "open",
+              "closed"
+            ]
+          },
+          "startSeq": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "endSeq": {
+            "oneOf": [
+              {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "segments": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "samples": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "candidate": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "defaultTakes": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "recoverable": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "object",
+          "required": [
+            "pos",
+            "raw",
+            "sample"
+          ],
+          "additionalProperties": true,
+          "properties": {
+            "pos": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "raw": {
+              "type": "string",
+              "pattern": "^rec-[0-9]{6}$"
+            },
+            "sample": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "lastCheckpointId": {
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "marks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true
+      }
+    },
+    "issues": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "code",
+          "message"
+        ],
+        "additionalProperties": true,
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "seq": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
